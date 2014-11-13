@@ -15,7 +15,6 @@ public class EventManager {
          {
             mgr.createAndStoreEvent("My Event", new Date());
         }
-
         HibernateUtil.getSessionFactory().close();
     }
 
