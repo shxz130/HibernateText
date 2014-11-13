@@ -13,7 +13,8 @@ public class EventManager {
         EventManager mgr = new EventManager();
 
          {
-            mgr.createAndStoreEvent("My Event", new Date());
+            mgr.createAndStoreEvent("first Event", new Date());
+            mgr.createAndStoreEvent("second Event", new Date());
         }
         HibernateUtil.getSessionFactory().close();
     }
@@ -22,12 +23,16 @@ public class EventManager {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
-        Event theEvent = new Event();
-        theEvent.setTitle(title);
-        theEvent.setDate(theDate);
-        session.save(theEvent);
+        Event firstEvent = new Event();
+        firstEvent.setTitle(title);
+        firstEvent.setDate(theDate);
+        session.save(firstEvent);
+
+  
+
 
         session.getTransaction().commit();
+
     }
 
 }
